@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class SimpleBullet : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position+=Vector3.up;
+		
 	}
-
-	
 }

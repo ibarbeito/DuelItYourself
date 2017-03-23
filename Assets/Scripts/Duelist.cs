@@ -25,7 +25,12 @@ public class Duelist : MonoBehaviour {
 			
 		}
 		if (Input.GetKey(Shoot)) {
-
+			Shot();
 		}
+	}
+	
+	void Shot() {
+		GameObject NewBullet = Instantiate(AmmoType.gameObject);
+		NewBullet.transform.position=transform.position;
 	}
 }
