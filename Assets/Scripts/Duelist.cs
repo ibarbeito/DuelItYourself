@@ -7,7 +7,7 @@ public class Duelist : MonoBehaviour {
 	public KeyCode Left;
 	public KeyCode Right;
 	public KeyCode Shoot;
-	public Bullet AmmoType;
+	public Bullet Ammo;
 	public float Speed;
 
 	// Use this for initialization
@@ -30,7 +30,7 @@ public class Duelist : MonoBehaviour {
 	}
 	
 	void Shot() {
-		GameObject NewBullet = Instantiate(AmmoType.gameObject);
-		NewBullet.transform.position=transform.position;
+       Bullet ammo= Instantiate(Ammo);
+        ammo.transform.position = transform.position;
 	}
 }
