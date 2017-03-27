@@ -44,4 +44,5 @@ public class Duelist : MonoBehaviour {
 			TimeToNextBullet=FireRate;
 		}
 	}
+    
 }
