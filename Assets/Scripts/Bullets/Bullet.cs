@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 	
-	public void Shoot () { 
+	void OnBecameInvisible() {
+        Destroy(gameObject);
     }
 
 	

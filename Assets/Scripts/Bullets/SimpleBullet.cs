@@ -9,7 +9,7 @@ public class SimpleBullet : Bullet {
 	}
 
     // Update is called once per frame
-    void Update () {
+    void Move () {
         transform.position += Vector3.up;
     }
 }
