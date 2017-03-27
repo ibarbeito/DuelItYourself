@@ -9,10 +9,15 @@ public class Duelist : MonoBehaviour {
 	public KeyCode Shoot;
 	public Bullet Ammo;
 	public float Speed;
+	public float FireRate;
+	
+	private Bounds CameraBounds;
+	private float TimeToNextBullet;
 
 	// Use this for initialization
 	void Start () {
-		
+		CameraBounds = Camera.main.OrthographicBounds();
+		TimeToNextBullet = 0f;
 	}
 	
 	// Update is called once per frame
@@ -27,10 +32,16 @@ public class Duelist : MonoBehaviour {
 		if (Input.GetKey(Shoot)) {
 			Shot();
 		}
+		TimeToNextBullet-=Time.deltaTime;
+		transform.position = new Vector3(Mathf.Clamp(transform.position.x, CameraBounds.min.x, CameraBounds.max.x), transform.position.y, transform.position.z);
 	}
 	
 	void Shot() {
-       Bullet ammo= Instantiate(Ammo);
-        ammo.transform.position = transform.position;
+		if (TimeToNextBullet<= 0) {
+			Bullet Bullet = Instantiate(Ammo);
+			Bullet.Owner = gameObject;
+			Bullet.transform.position = transform.position;
+			TimeToNextBullet=FireRate;
+		}
 	}
 }
