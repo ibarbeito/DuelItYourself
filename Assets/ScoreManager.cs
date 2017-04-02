@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
+    [Tooltip ("GameObject que representa al Jugador 1")]
     public GameObject player1;
+    [Tooltip("GameObject que representa al Jugador 2")]
     public GameObject player2;
+    [Tooltip("Interfaz de la puntuación para el jugador 1")]
     public UnityEngine.UI.Text scoreTextP1;
+    [Tooltip("Interfaz de la puntuación para el jugador 2")]
     public UnityEngine.UI.Text scoreTextP2;
     private int player1Score;
     private int player2Score;
@@ -21,8 +25,12 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	}
+        //Cuando se presiona T, se reinician las puntuaciones
+        if (Input.GetKey(KeyCode.T)) 
+            PlayerPrefs.DeleteAll();
+    }
 
+    //Ganador jugador 1, aumenta su puntuación y actualiza la Interfaz
     public void WinsPlayer1 () {
         player1Score++;
         scoreTextP1.text = player1Score.ToString();
@@ -35,11 +43,13 @@ public class ScoreManager : MonoBehaviour {
         PlayerPrefs.SetInt("Player2Score", player2Score);
     }
 
+    //Fin de la ronda, detecta el ganador
     public void EndRound (GameObject winer) {
         if (winer.Equals(player1))
             WinsPlayer1();
-        else
-            WinsPlayer2();
+        else 
+            if (winer.Equals(player2))
+                WinsPlayer2();
 
     }
 }
