@@ -12,8 +12,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
         if (!coll.gameObject.Equals(Owner)) {
-            GameObject.FindObjectOfType<ScoreManager>().EndRound(Owner);
-            coll.gameObject.SetActive(false);
+            coll.gameObject.GetComponent<Duelist>().Hited(1);
         }
 	}
 

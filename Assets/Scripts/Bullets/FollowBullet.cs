@@ -11,7 +11,8 @@ public class FollowBullet :Bullet {
 	void Start () {
         if (objective == null)
             objective = GameObject.Find("DownPlayer");
-        targetDirection = (objective.transform.position - transform.position).normalized*speed;
+        if (objective)
+            targetDirection = (objective.transform.position - transform.position).normalized*speed;
 
 
     }
