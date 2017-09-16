@@ -6,28 +6,35 @@ public class PlayerController : MonoBehaviour {
 
 	public string AxisHorizontal = "Horizontal";
 	public string AxisVertical = "Vertical";
-    public string ShootButton = "Fire1";
 	public float Speed = 10f;
-    public BananaWeapon Weapon;
-    public BananaBullet Bullet;
+	LifeManager LifeMan;
 
 	// Use this for initialization
 	void Start () {
+		LifeMan = GetComponent<LifeManager>();
 	}
-	
-	// Update is called once per frame
+
+	void Update() {
+		if (Input.GetKeyUp(KeyCode.F)) {
+			Hit(1);	
+		}
+		
+	}	
+
 	void FixedUpdate () {
 		float Horizontal = Input.GetAxis(AxisHorizontal);
 		float Vertical = Input.GetAxis(AxisVertical);
 		Vector3 Direction = new Vector3(Horizontal, 0, Vertical);
 		GetComponent<Rigidbody>().AddForce(Direction*Speed,ForceMode.VelocityChange);
-        if (Input.GetButtonDown(ShootButton))
-        {
-            BananaBullet b = BananaBullet.Instantiate(Bullet);
-            b.transform.rotation = gameObject.transform.rotation;
-            b.transform.position = gameObject.transform.position;
-            Weapon.Shot(gameObject, b);
-            
-        }
 	}
+
+    public void Hit(int Damage) {
+		LifeMan.DoDamage(Damage);
+        bool Alive = LifeMan.IsAlive();
+		if (!Alive) {
+           gameObject.SetActive(false);
+		}
+    }
+
+
 }
