@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     public string ShootButton = "Fire1";
 	public float Speed = 10f;
     public BananaWeapon Weapon;
-    public Bullet Bullet;
+    public BananaBullet Bullet;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 		GetComponent<Rigidbody>().AddForce(Direction*Speed,ForceMode.VelocityChange);
         if (Input.GetButtonDown(ShootButton))
         {
-            Bullet b = Bullet.Instantiate(Bullet);
+            BananaBullet b = BananaBullet.Instantiate(Bullet);
+            b.transform.rotation = gameObject.transform.rotation;
             b.transform.position = gameObject.transform.position;
             Weapon.Shot(gameObject, b);
             

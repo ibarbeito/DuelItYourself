@@ -10,17 +10,13 @@ public class BananaWeapon : MonoBehaviour {
 
     private float TimeToNextBullet = 0;
 
-    void Update()
-    {
-    }
 
-    public void Shot(GameObject shooter, Bullet Ammo)
+    public void Shot(GameObject shooter, BananaBullet Ammo)
     {
         if (TimeToNextBullet <= 0)
         {
-            Bullet Bullet = Instantiate(Ammo);
-            Bullet.Owner = shooter;
-            Bullet.transform.rotation = shooter.transform.rotation;
+            BananaBullet Bullet = GameObject.Instantiate(Ammo);
+           // Bullet.Owner = shooter;
             Bullet.transform.position = shooter.transform.position;
             TimeToNextBullet = FireRate;
         }

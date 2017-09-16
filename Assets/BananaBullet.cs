@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BananaBullet :Bullet {
+public class BananaBullet : MonoBehaviour {
     public float speed=0.2f;
 	// Use this for initialization
 	void Start () {
@@ -10,7 +10,7 @@ public class BananaBullet :Bullet {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += Vector3.forward * speed;
+        transform.position += transform.forward * speed;
 	}
 
 
