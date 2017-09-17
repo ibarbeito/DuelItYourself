@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class BananaBullet : MonoBehaviour {
     public float speed=0.2f;
+    private Rigidbody rigid;
+    public float timeToDestroy = 2.0f;
 	// Use this for initialization
 	void Start () {
-	}
+        rigid = GetComponent<Rigidbody>();
+
+        rigid.AddForce(transform.forward * speed);
+        Destroy(gameObject, timeToDestroy);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += transform.forward * speed;
+        //  transform.position += transform.forward * speed;
 	}
 
 

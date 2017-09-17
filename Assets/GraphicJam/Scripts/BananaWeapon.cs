@@ -17,6 +17,7 @@ public class BananaWeapon : MonoBehaviour {
         {
             BananaBullet Bullet = GameObject.Instantiate(Ammo);
             Bullet.transform.position = shooter.transform.position;
+            Bullet.transform.rotation = shooter.transform.rotation;
             TimeToNextBullet = FireRate;
         }
 
