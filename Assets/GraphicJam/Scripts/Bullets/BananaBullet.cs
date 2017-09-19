@@ -19,5 +19,17 @@ public class BananaBullet : MonoBehaviour {
         //  transform.position += transform.forward * speed;
 	}
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+            player.Hit(1);
+        }
+
+    }
+
+
+
 
 }

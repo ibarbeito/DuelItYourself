@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 		float Vertical = Input.GetAxis(AxisVertical);
 		Vector3 Direction = new Vector3(Horizontal, 0, Vertical);
 		GetComponent<Rigidbody>().AddForce(Direction*Speed,ForceMode.VelocityChange);
-	}
+    }
 
     public void Hit(int Damage) {
 		LifeMan.DoDamage(Damage);

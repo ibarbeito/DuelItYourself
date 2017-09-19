@@ -17,7 +17,5 @@ public class HeadRotation : MonoBehaviour {
         var angle = Mathf.Atan2(Input.GetAxis(VerticalAxis), Input.GetAxis(HorizontalAxis)) * Mathf.Rad2Deg;
         angle = angle + 90;
         transform.rotation = Quaternion.Euler(0, angle, 0);
-        //   DirVector += new Vector3(Input.GetAxis(HorizontalAxis), 0, Input.GetAxis(VerticalAxis));
-        //transform.rotation = Quaternion.LookRotation(DirVector );
     }
 }
