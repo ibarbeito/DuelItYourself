@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,9 +29,10 @@ public class PlayerController : MonoBehaviour {
 		float Vertical = Input.GetAxis(AxisVertical);
 		Vector3 Direction = new Vector3(Horizontal, 0, Vertical);
 		GetComponent<Rigidbody>().AddForce(Direction*Speed,ForceMode.VelocityChange);
-
-        var angle = Mathf.Atan2(-Input.GetAxis(RotationAxisVertical), Input.GetAxis(RotationAxisHorizontal)) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), 0.1f);
+		if (Mathf.Abs(Horizontal) >= 0.1f || Mathf.Abs(Vertical)>=0.1f) {
+	        var angle = Mathf.Atan2(-Input.GetAxis(RotationAxisVertical), Input.GetAxis(RotationAxisHorizontal)) * Mathf.Rad2Deg;
+	        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), 0.1f);
+		}
     }
 
     public void Hit(int Damage) {

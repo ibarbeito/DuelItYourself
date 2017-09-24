@@ -7,7 +7,7 @@ public class HeadRotation : MonoBehaviour {
     public string HorizontalAxis = "Horizontal3";
     public string VerticalAxis = "Vertical3";
     public float TurnSpeed = 0.2f;
-    private Vector3 DirVector=Vector3.zero;
+    //private Vector3 DirVector=Vector3.zero;
     // Use this for initialization
     void Start () {
 		
@@ -15,7 +15,11 @@ public class HeadRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var angle = Mathf.Atan2(Input.GetAxis(HorizontalAxis), Input.GetAxis(VerticalAxis)) * Mathf.Rad2Deg;
-        transform.rotation =Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), TurnSpeed);
+		float Horizontal = Input.GetAxis(HorizontalAxis);
+		float Vertical = Input.GetAxis(VerticalAxis);
+		if (Mathf.Abs(Horizontal) >= 0.1f || Mathf.Abs(Vertical)>=0.1f) {
+        	var angle = Mathf.Atan2(Horizontal, Vertical) * Mathf.Rad2Deg;
+        	transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), TurnSpeed);
+		}
     }
 }
