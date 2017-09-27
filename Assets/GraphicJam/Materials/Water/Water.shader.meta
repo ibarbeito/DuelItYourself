@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: 0f77c98b61a7f3447bd670eb72e97d83
-timeCreated: 1506537101
+timeCreated: 1506538613
 licenseType: Free
 ShaderImporter:
   defaultTextures:
-  - _FoamMask: {fileID: 2800000, guid: ff50eb98fa8b43d428969851f282837d, type: 3}
+  - _FoamMask: {fileID: 2800000, guid: dd4587a5fe57d4c468abbd47dcdc4258, type: 3}
   - _DisplacementTexture: {fileID: 2800000, guid: cfc80cb02c6a12444880bff82a5621fa,
       type: 3}
   userData: 
