@@ -12,7 +12,6 @@ public class BananaBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rigid = GetComponent<Rigidbody>();
-		Debug.Log(speed);
         rigid.AddForce(transform.forward * speed);
         Destroy(gameObject, timeToDestroy);
     }
