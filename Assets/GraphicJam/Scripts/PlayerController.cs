@@ -19,11 +19,18 @@ public class PlayerController : MonoBehaviour {
     public float ImpulseForce = 200f;
     public float CooldownTimer = 5.0f;
     private float timer = 0.0f;
+	public int Id = 0;
 
     // Use this for initialization
     void Start () {
 		LifeMan = GetComponent<LifeManager>();
         GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
+		PlayerInfo PI = FindObjectOfType<PlayerInfo>();
+		if (PI != null) {
+			GetComponentInChildren<TextMesh>().text = PI.GetName(Id);
+			Renderer Ren = GetComponent<Renderer>();	
+			Ren.material.SetColor("_Color2", PI.GetColor(Id));
+		}
 	}
 
 	void Update() {

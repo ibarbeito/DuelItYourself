@@ -13,4 +13,16 @@ public class PlayerInfo : MonoBehaviour {
 	void Start () {
 		DontDestroyOnLoad(this);
 	}
+	
+	public string GetName(int Id) {
+		if (Id == 1)
+			return Player1Name;
+		return Player2Name;
+	}
+
+	public Color GetColor(int Id) {
+		if (Id == 1)
+			return Player1Color;
+		return Player2Color;
+	}
 }
