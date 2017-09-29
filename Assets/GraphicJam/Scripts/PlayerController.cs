@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public string RotationAxisHorizontal = "Horizontal";
     public string RotationAxisVertical = "Vertical";
     public string JumpButton = "Jump";
+    public Transform centerOfMass;
     public float Speed = 10f;
 	LifeManager LifeMan;
     public bool AllowJump = true;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		LifeMan = GetComponent<LifeManager>();
+        GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
 	}
 
 	void Update() {
