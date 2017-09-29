@@ -8,14 +8,4 @@ public class splash : MonoBehaviour {
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        ParticleSystem.Particle[] particles = gameObject.GetComponent<ParticleSystem>().GetParticles();
-        foreach (ParticleSystem.Particle particle in collection)
-        {
-
-        }
-		gameObject.GetComponent<ParticleSystem>().GetParticles()
-	}
 }
