@@ -12,12 +12,12 @@ public class CharSpinner : MonoBehaviour {
 	}
 
 	public void Select() {
-		GetComponent<Text>().fontSize = 25;
+		GetComponent<Text>().fontSize = 50;
 		GetComponent<Text>().color = Color.yellow;
 	}
 
 	public void Unselect() {
-		GetComponent<Text>().fontSize = 20;
+		GetComponent<Text>().fontSize = 40;
 		GetComponent<Text>().color = Color.white;
 	}
 

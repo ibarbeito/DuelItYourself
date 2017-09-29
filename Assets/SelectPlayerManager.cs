@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectPlayerManager : MonoBehaviour {
 
@@ -10,7 +11,7 @@ public class SelectPlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Player1.Confirmed && Player2.Confirmed) {
-			Debug.Log(":D");
+			SceneManager.LoadScene("GJ");
 		}
 	}
 }
