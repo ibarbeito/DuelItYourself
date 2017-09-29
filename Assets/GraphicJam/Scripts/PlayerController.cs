@@ -9,12 +9,17 @@ public class PlayerController : MonoBehaviour {
 
     public string RotationAxisHorizontal = "Horizontal";
     public string RotationAxisVertical = "Vertical";
+    public string JumpButton = "Jump";
+    public Transform centerOfMass;
     public float Speed = 10f;
 	LifeManager LifeMan;
+    public bool AllowJump = true;
+    public float JumpForce = 200f;
 
 	// Use this for initialization
 	void Start () {
 		LifeMan = GetComponent<LifeManager>();
+        GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
 	}
 
 	void Update() {
@@ -33,6 +38,13 @@ public class PlayerController : MonoBehaviour {
 	        var angle = Mathf.Atan2(-Input.GetAxis(RotationAxisVertical), Input.GetAxis(RotationAxisHorizontal)) * Mathf.Rad2Deg;
 	        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), 0.1f);
 		}
+
+        if (AllowJump && Input.GetButton(JumpButton))
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
+            AllowJump = false;
+
+        }
     }
 
     public void Hit(int Damage) {
