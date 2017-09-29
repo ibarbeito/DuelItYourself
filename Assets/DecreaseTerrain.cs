@@ -16,7 +16,9 @@ public class DecreaseTerrain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 ActualScale = transform.localScale;
-		if (ActualScale.x > MinScale.x && ActualScale.z > MinScale.z)
-			transform.localScale -= DecreaseSpeed*Direction;
+        if (ActualScale.z >= MinScale.z)
+        {
+            transform.localScale -= DecreaseSpeed * Direction;
+        }
 	}
 }
