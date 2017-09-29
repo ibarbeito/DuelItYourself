@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 
         if (timer>CooldownTimer && Input.GetButton(ImpulseButton))
         {
-            GetComponent<Rigidbody>().AddForce(transform.right * ImpulseForce, ForceMode.VelocityChange);
+            GetComponent<Rigidbody>().AddForce(transform.right * ImpulseForce, ForceMode.Impulse);
             timer = 0.0f;
 
         }
