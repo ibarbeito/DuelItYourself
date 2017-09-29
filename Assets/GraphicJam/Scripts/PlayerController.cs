@@ -10,14 +10,18 @@ public class PlayerController : MonoBehaviour {
     public string RotationAxisHorizontal = "Horizontal";
     public string RotationAxisVertical = "Vertical";
     public string JumpButton = "Jump";
+    public string ImpulseButton = "Impulse";
     public Transform centerOfMass;
     public float Speed = 10f;
 	LifeManager LifeMan;
     public bool AllowJump = true;
     public float JumpForce = 200f;
+    public float ImpulseForce = 200f;
+    public float CooldownTimer = 5.0f;
+    private float timer = 0.0f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		LifeMan = GetComponent<LifeManager>();
         GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
 	}
@@ -38,7 +42,14 @@ public class PlayerController : MonoBehaviour {
 	        var angle = Mathf.Atan2(-Input.GetAxis(RotationAxisVertical), Input.GetAxis(RotationAxisHorizontal)) * Mathf.Rad2Deg;
 	        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, angle, 0), 0.1f);
 		}
+        timer += Time.fixedDeltaTime;
 
+        if (timer>CooldownTimer && Input.GetButton(ImpulseButton))
+        {
+            GetComponent<Rigidbody>().AddForce(transform.right * ImpulseForce, ForceMode.VelocityChange);
+            timer = 0.0f;
+
+        }
         if (AllowJump && Input.GetButton(JumpButton))
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * JumpForce, ForceMode.VelocityChange);
