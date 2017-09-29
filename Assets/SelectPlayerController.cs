@@ -15,10 +15,12 @@ public class SelectPlayerController : MonoBehaviour {
 	public CharSpinner[] Chars;
 	public bool Confirmed = false;
 	public string FinalName = "AAA";
+	public int CurrentColor = 0;
+	Color[] Colors = {Color.red, Color.blue, Color.green, Color.yellow};
 
 	DiscreteAxisHandler HorizontalNameHandler;
 	DiscreteAxisHandler VerticalNameHandler;
-	DiscreteAxisHandler HorizontaModelHandler; 
+	DiscreteAxisHandler HorizontalModelHandler; 
 	int CurrentIndex;
 
 	// Use this for initialization
@@ -27,7 +29,10 @@ public class SelectPlayerController : MonoBehaviour {
 		HorizontalNameHandler.Start(NameAxisHorizontal, NameAxisHorizontalDelay);
 		VerticalNameHandler = new DiscreteAxisHandler();
 		VerticalNameHandler.Start(NameAxisVertical, NameAxisVerticalDelay);
+		HorizontalModelHandler = new DiscreteAxisHandler();
+		HorizontalModelHandler.Start(ModelAxisHorizontal, ModelAxisHorizontalDelay);
 		ActivateOne(CurrentIndex);
+		SetSelectedColor(0);
 	}
 	
 	// Update is called once per frame
@@ -41,7 +46,7 @@ public class SelectPlayerController : MonoBehaviour {
 				}
 			}
 			else
-				ActivateOne(0);
+				ActivateOne(CurrentIndex);
 			Confirmed=!Confirmed;
 		}
 
@@ -60,8 +65,16 @@ public class SelectPlayerController : MonoBehaviour {
 		if (VerticalNameHandler.Negative()) {
 			Chars[CurrentIndex].NextChar(-1);
 		}
+		if (HorizontalModelHandler.Positive()) {
+			SetSelectedColor(1);
+		}
+		if (HorizontalModelHandler.Negative()) {
+			SetSelectedColor(-1);
+		
+		}
 		HorizontalNameHandler.Update();
 		VerticalNameHandler.Update();
+		HorizontalModelHandler.Update();
 	}
 
 	void SetSelectedChar(int Next) {
@@ -79,5 +92,15 @@ public class SelectPlayerController : MonoBehaviour {
 		}
 		if (Index >=0)
 			Chars[Index].Select();
+	}
+
+	void SetSelectedColor(int Next) {
+		CurrentColor+=Next;
+		if (CurrentColor < 0)
+			CurrentColor = Colors.Length-1;
+		if (CurrentColor > Colors.Length-1)
+			CurrentColor = 0; 
+		Renderer Sh = GetComponent<Renderer>();	
+		Sh.material.SetColor("_Color2", Colors[CurrentColor]);
 	}
 }
