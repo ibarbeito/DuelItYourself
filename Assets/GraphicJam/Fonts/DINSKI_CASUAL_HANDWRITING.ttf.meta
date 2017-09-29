@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 58668ba616669554fab96caf2727867f
+timeCreated: 1506717610
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DINSKI CASUAL HANDWRITING
+  fontNames:
+  - DINSKI CASUAL HANDWRITING
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 0f8ecaca8e60bd9478119293b31bb051, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
