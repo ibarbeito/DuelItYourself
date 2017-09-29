@@ -1,15 +1,88 @@
 fileFormatVersion: 2
-guid: 687ad86a84c7d2d41af818a9f18ea004
-timeCreated: 1506375212
+guid: 63e7cdbe4f11fc646ac0e5e2a05bd0d1
+timeCreated: 1506722996
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
+    100002: SM_branch
+    100004: SM_branch1
+    100006: SM_branch2
+    100008: SM_branch3
+    100010: SM_branch4
+    100012: SM_branch5
+    100014: SM_branch6
+    100016: SM_branch7
+    100018: SM_branch8
+    100020: SM_branch9
+    100022: Sm_Palmtree
+    100024: SM_palmtree_branch
+    100026: SM_Stones
+    100028: SM_Trunk
+    100030: Stone_1
+    100032: Stone_2
+    100034: Stone_3
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: SM_Monkey8
+    400002: SM_branch
+    400004: SM_branch1
+    400006: SM_branch2
+    400008: SM_branch3
+    400010: SM_branch4
+    400012: SM_branch5
+    400014: SM_branch6
+    400016: SM_branch7
+    400018: SM_branch8
+    400020: SM_branch9
+    400022: Sm_Palmtree
+    400024: SM_palmtree_branch
+    400026: SM_Stones
+    400028: SM_Trunk
+    400030: Stone_1
+    400032: Stone_2
+    400034: Stone_3
+    2300000: SM_branch
+    2300002: SM_branch1
+    2300004: SM_branch2
+    2300006: SM_branch3
+    2300008: SM_branch4
+    2300010: SM_branch5
+    2300012: SM_branch6
+    2300014: SM_branch7
+    2300016: SM_branch8
+    2300018: SM_branch9
+    2300020: SM_Trunk
+    2300022: Stone_1
+    2300024: Stone_2
+    2300026: Stone_3
+    3300000: SM_branch
+    3300002: SM_branch1
+    3300004: SM_branch2
+    3300006: SM_branch3
+    3300008: SM_branch4
+    3300010: SM_branch5
+    3300012: SM_branch6
+    3300014: SM_branch7
+    3300016: SM_branch8
+    3300018: SM_branch9
+    3300020: SM_Trunk
+    3300022: Stone_1
+    3300024: Stone_2
+    3300026: Stone_3
+    4300000: SM_branch1
+    4300002: SM_branch2
+    4300004: SM_branch3
+    4300006: SM_branch4
+    4300008: SM_branch5
+    4300010: SM_branch6
+    4300012: SM_branch7
+    4300014: SM_branch8
+    4300016: SM_branch9
+    4300018: SM_branch
+    4300020: SM_Trunk
+    4300022: Stone_3
+    4300024: Stone_2
+    4300026: Stone_1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -59,7 +132,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

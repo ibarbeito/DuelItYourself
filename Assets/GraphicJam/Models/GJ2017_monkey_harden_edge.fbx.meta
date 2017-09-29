@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 687ad86a84c7d2d41af818a9f18ea004
-timeCreated: 1506375212
+guid: 219561a15d506ce47af42817db2932fa
+timeCreated: 1506722995
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -59,7 +59,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

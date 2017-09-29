@@ -13,9 +13,9 @@ public class SceneReloader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!Player1.activeSelf || !Player2.activeSelf) {
-			if (Input.GetKey(RestartKey)) {
+			//if (Input.GetKey(RestartKey)) {
 				 SceneManager.LoadScene(SceneName);
-			}
+			//}
 		}
 	}
 }
