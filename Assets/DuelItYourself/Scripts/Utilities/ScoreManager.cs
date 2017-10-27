@@ -22,8 +22,10 @@ public class ScoreManager : MonoBehaviour {
 
     private int player1Score;
     private int player2Score;
+    private SceneReloader sceneReloader;
     // Use this for initialization
     void Start () {
+        sceneReloader = GameObject.FindGameObjectWithTag("SceneReloader").GetComponent<SceneReloader>();
         winnUI.SetActive(false);
         player1Score = PlayerPrefs.GetInt("Player1Score", 0);
         player2Score = PlayerPrefs.GetInt("Player2Score", 0);
@@ -72,8 +74,16 @@ public class ScoreManager : MonoBehaviour {
             winnerText.text = "Winner Player 1";
         }
         //detener el tiempo(pausa)
+        //Invoke("reload", 2.0f);
         Time.timeScale = 0.0f;
         winnUI.SetActive(true);
+        StartCoroutine("Reload");
 
+    }
+
+  
+    private IEnumerator Reload() {
+        yield return new WaitForSecondsRealtime(2.0f);
+        sceneReloader.reloadScene();
     }
 }

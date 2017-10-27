@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		LifeMan = GetComponent<LifeManager>();
+        
+        LifeMan = GetComponent<LifeManager>();
         GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
 		PlayerInfo PI = FindObjectOfType<PlayerInfo>();
 		if (PI != null) {

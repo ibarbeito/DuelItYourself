@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeathBarrier : MonoBehaviour {
+    private ScoreManager manager;
 
-	void OnCollisionEnter(Collision collision)
+    // Use this for initialization
+    void Start()
     {
-        collision.gameObject.SetActive(false);
+
+        manager = FindObjectOfType<ScoreManager>();
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        manager.EndRound(collision.gameObject);
+        //collision.gameObject.SetActive(false);
     }
 }
